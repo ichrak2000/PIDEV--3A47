@@ -1,0 +1,55 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Services List{% endblock %}
+
+{% block contentblock %}
+    <h1 align='center'>Services List</h1>
+    <div align='center'>
+        <a href="{{ path('app_service_new') }}">
+            <button type="button" class="btn btn-primary btn-rounded btn-icon"> Create New Service </button>
+        </a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Actions</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Durée</th>
+                    <th>Disponibilité</th>
+                    <th>Prix</th>
+                    <th>Date de création</th>
+                    <th>Id User</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for service in services %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('app_service_show', {'id': service.id}) }}">
+                                <button type="button" class="btn btn-primary btn-rounded btn-fw">Show</button>
+                            </a>
+                            <br><br>
+                            <a href="{{ path('app_service_edit', {'id': service.id}) }}">
+                                <button type="button" class="btn btn-warning btn-rounded btn-fw">Edit</button>
+                            </a>
+                        </td>
+                        <td>{{ service.name }}</td>
+                        <td>{{ service.description }}</td>
+                        <td>{{ service.duree ? service.duree|date('Y-m-d') : '' }}</td>
+                        <td>{{ service.disponibilite }}</td>
+                         <td>{{ service.prix }} DT</td>
+                        <td>{{ service.dateDeCreation ? service.dateDeCreation|date('Y-m-d') : '' }}</td>
+                        <td>{{ service.idUser }}</td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="7">No records found</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

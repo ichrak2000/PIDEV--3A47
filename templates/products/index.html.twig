@@ -1,0 +1,26 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}Les produits
+{% endblock %}
+
+{% block body %}
+    <section class="bg-light p-3">
+        <h1 align="center">Les produits</h1>
+    </section>
+
+    <section class="product bg-white">
+        {% for product in products %}
+            <div class=container>
+                <div class=row>
+                    <h2>{{ product.title }}</h2>
+                    <p>{{ product.price }} €</p>
+                    <img class="w-100" src="{{ asset('uploads/') ~ product.image }}" alt="Image de {{ product.title }}">
+                    <hr>
+                    <a href="{{path("cart_add", {id: product.id})}}" class="btn btn-success">
+                        <i class="bi bi-cart-plus"></i> Ajouter
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'basePDF.html.twig' %}
+{% block title %}Facture index{% endblock %}
+{% block body %}
+    <h1 align = "center">Liste des Factures</h1>
+  <table class="table">
+        <thead>
+        <tr>
+            <th>Factureid</th>
+            <th>Commandeid</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Email</th>
+            <th>Adresse</th>
+            <th>Numtelephone</th>
+            <th>Date</th>
+            <th>Totalcost</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for Facture in Factures %}
+            <tr>
+                <td>{{ Facture.Factureid }}</td>
+                <td>{{ Facture.commandeid }}</td>
+                <td>{{ Facture.nom }}</td>
+                <td>{{ Facture.prenom }}</td>
+                <td>{{ Facture.email }}</td>
+                <td>{{ Facture.adresse }}</td>
+                <td>{{ Facture.numtelephone }}</td>
+                <td>{{ Facture.date ? Facture.date|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ Facture.totalcost }}</td>
+
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

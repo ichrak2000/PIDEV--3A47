@@ -1,0 +1,48 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Commande index {% endblock %}
+
+{% block body %}
+    <h1 align="center">Les Commandes</h1>
+     <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Email</th>
+            <th>Numerotelephone</th>
+            <th>Adresse</th>
+            <th>Date</th>
+            <th>Total</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+            <tr>
+                <td>{{ commande.commandeId }}</td>
+
+                <td>{{ commande.nom }}</td>
+                <td>{{ commande.prenom }}</td>
+                <td>{{ commande.email }}</td>
+                <td>{{ commande.adresse }}</td>
+                <td>{{ commande.numtelephone }}</td>
+                <td>{{ commande.date ? commande.date|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ commande.totalCost }}</td>
+                <td>
+                      {{ include('Facture/Accept.html.twig')  }} 
+
+                    {{ include('commande/_delete_form.html.twig') }}
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

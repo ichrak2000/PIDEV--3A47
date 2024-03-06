@@ -2,12 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\CategorieRepository;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+use App\Repository\CategorieRepository;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CategorieRepository::class)]
@@ -30,24 +31,17 @@ class Categorie
     #[Assert\NotBlank(message: "Le service associé ne peut pas être vide")]
     private ?string $service_associe = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[ORM\Column(type: 'datetime')]
     #[Assert\NotBlank(message: "La date de création ne peut pas être vide")]
     private ?\DateTimeInterface $date_de_creation = null;
 
-    #[ORM\Column(length: 255)]
-    #[Assert\File(
-        mimeTypes: ["image/jpeg", "image/png"],
-        mimeTypesMessage: "Veuillez télécharger une image au format JPEG ou PNG"
-    )]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $imagePath = null;
 
-    #[ORM\OneToMany(targetEntity: Service::class, mappedBy: 'categorie')]
-    private Collection $slug;
+    #[ORM\OneToOne(mappedBy: 'Categoriee', cascade: ['persist', 'remove'])]
+    private ?Service $service = null;
 
-    public function __construct()
-    {
-        $this->slug = new ArrayCollection();
-    }
+    
 
     public function getId(): ?int
     {
@@ -117,30 +111,31 @@ class Categorie
     /**
      * @return Collection<int, Service>
      */
-    public function getSlug(): Collection
+
+    public function getService(): ?Service
     {
-        return $this->slug;
+        return $this->service;
     }
 
-    public function addSlug(Service $slug): static
+    public function setService(?Service $service): static
     {
-        if (!$this->slug->contains($slug)) {
-            $this->slug->add($slug);
-            $slug->setCategorie($this);
+        // unset the owning side of the relation if necessary
+        if ($service === null && $this->service !== null) {
+            $this->service->setCategoriee(null);
         }
+
+        // set the owning side of the relation if necessary
+        if ($service !== null && $service->getCategoriee() !== $this) {
+            $service->setCategoriee($this);
+        }
+
+        $this->service = $service;
 
         return $this;
     }
+   
 
-    public function removeSlug(Service $slug): static
-    {
-        if ($this->slug->removeElement($slug)) {
-            // set the owning side to null (unless already changed)
-            if ($slug->getCategorie() === $this) {
-                $slug->setCategorie(null);
-            }
-        }
+   
 
-        return $this;
-    }
+    
 }

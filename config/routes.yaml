@@ -3,3 +3,9 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+
+translate_page:
+    path: /translate
+    controller: App\Controller\TranslationController::translate
+    methods: [GET]

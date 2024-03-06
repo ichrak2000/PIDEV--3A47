@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ServiceRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ServiceRepository::class)]
 class Service
@@ -15,28 +16,40 @@ class Service
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: "Le nom ne peut pas être vide")]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: "La description ne peut pas être vide")]
     private ?string $description = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
+
+    #[ORM\Column(type: 'time')]
+    #[Assert\NotNull(message: 'Veuillez saisir une durée')]
     private ?\DateTimeInterface $duree = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Veuillez entrer la disponibilité')]
     private ?string $disponibilite = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Veuillez saisir un identifiant utilisateur')]
     private ?string $id_user = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[Assert\NotBlank(message: 'Veuillez saisir une date de création')]
     private ?\DateTimeInterface $date_de_creation = null;
 
-    #[ORM\ManyToOne(inversedBy: 'slug')]
-    private ?Categorie $categorie = null;
 
     #[ORM\Column]
     private ?float $prix = null;
+
+    #[ORM\OneToOne(inversedBy: 'service', cascade: ['persist', 'remove'])]
+    private ?Categorie $Categoriee = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $etat = null;
+    
 
     public function getId(): ?int
     {
@@ -66,6 +79,8 @@ class Service
 
         return $this;
     }
+
+   
 
     public function getDuree(): ?\DateTimeInterface
     {
@@ -115,17 +130,8 @@ class Service
         return $this;
     }
 
-    public function getCategorie(): ?Categorie
-    {
-        return $this->categorie;
-    }
-
-    public function setCategorie(?Categorie $categorie): static
-    {
-        $this->categorie = $categorie;
-
-        return $this;
-    }
+   
+    
 
     public function getPrix(): ?float
     {
@@ -138,4 +144,30 @@ class Service
 
         return $this;
     }
+
+    public function getCategoriee(): ?Categorie
+    {
+        return $this->Categoriee;
+    }
+
+    public function setCategoriee(?Categorie $Categoriee): static
+    {
+        $this->Categoriee = $Categoriee;
+
+        return $this;
+    }
+
+    public function getEtat(): ?int
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(int $etat): static
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
+  
 }

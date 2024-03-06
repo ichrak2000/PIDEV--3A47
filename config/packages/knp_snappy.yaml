@@ -1,0 +1,9 @@
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe' # Adaptez si votre chemin est différent
+        options:    []
+    image:
+        enabled:    true
+        binary:     'C:\Program Files\wkhtmltopdf\bin\wkhtmltoimage.exe' # Adaptez si votre chemin est différent
+        options:    []

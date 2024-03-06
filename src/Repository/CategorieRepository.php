@@ -20,7 +20,22 @@ class CategorieRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Categorie::class);
     }
-
+    public function findBySortedField($field = 'name', $direction = 'ASC')
+    {
+        return $this->createQueryBuilder('c')
+            ->orderBy('c.' . $field, $direction)
+            ->getQuery()
+            ->getResult();
+    }
+    public function findOneByName($name): ?Categorie
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.name = :name')
+            ->setParameter('name', $name)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+    
 //    /**
 //     * @return Categorie[] Returns an array of Categorie objects
 //     */

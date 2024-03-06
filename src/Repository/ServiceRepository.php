@@ -20,6 +20,22 @@ class ServiceRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Service::class);
     }
+    public function findBySortedField($field = 'name', $direction = 'ASC')
+    {
+        return $this->createQueryBuilder('u')
+            ->orderBy('u.' . $field, $direction)
+            ->getQuery()
+            ->getResult();
+    }
+    public function findOneByName($name): ?Service
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.name = :name')
+            ->setParameter('name', $name)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+    
 
 //    /**
 //     * @return Service[] Returns an array of Service objects

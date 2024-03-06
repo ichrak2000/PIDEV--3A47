@@ -1,0 +1,32 @@
+{# templates/service/confirm_add_to_wishlist.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirm Wishlist Addition</title>
+</head>
+<body>
+    <p>Would you like to add "{{ service.name }}" to your wishlist?</p>
+    <button id="confirm-btn">Yes, add to wishlist</button>
+
+    <script>
+        document.getElementById('confirm-btn').addEventListener('click', function() {
+            fetch('/service/{{ service.id }}/add-to-wishlist', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    // Assuming you're sending a CSRF token
+                    'X-CSRF-TOKEN': '{{ csrf_token('add_to_wishlist') }}'
+                },
+                // You might need to send additional data with POST
+                body: JSON.stringify({ serviceId: '{{ service.id }}' })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle response data, show success message, etc.
+                alert(data.message);
+            });
+        });
+    </script>
+</body>
+</html>

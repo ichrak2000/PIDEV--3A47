@@ -27,7 +27,7 @@
                 <th>Disponibilité</th>
                 <td>{{ service.disponibilite }}</td>
             </tr>
-              <tr>
+            <tr>
                 <th>Prix</th>
                 <td>{{ service.prix }}</td>
             </tr>
@@ -42,6 +42,9 @@
         </tbody>
     </table>
 
+{# templates/service/show.html.twig #}
+<a href="{{ path('checkout', {'service_id': service.id}) }}" class="btn btn-primary">Buy this product</a>
+
     <a href="{{ path('app_service_index') }}">Back to List</a>
     <a href="{{ path('app_service_edit', {'id': service.id}) }}">Edit</a>
 
@@ -51,5 +54,45 @@
         <a href="{{ path('app_service_index') }}">
             <button type="button" class="btn btn-dark btn-rounded btn-fw">Back to List</button>
         </a>
+    </div>
+    <h3>Ratings for this Service:</h3>
+<ul>
+ {% for rating in ratings %}
+    <li>{{ rating.getScore }} - {{ rating.getComment }}</li> {# Replace with the actual method names #}
+{% else %}
+    <li>No ratings yet.</li>
+{% endfor %}
+
+
+
+    <!-- Button to trigger rating modal -->
+<a href="{{ path('service_rate', {'id': service.id}) }}">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#rateModal">
+        Rate this service
+    </button>
+</a>
+
+
+
+
+    <!-- Modal for rating -->
+    <div class="modal fade" id="rateModal" tabindex="-1" role="dialog" aria-labelledby="rateModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="rateModalLabel">Rate this service</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Your rating form goes here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Submit Rating</button>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

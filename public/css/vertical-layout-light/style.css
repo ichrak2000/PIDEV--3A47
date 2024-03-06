@@ -9025,6 +9025,11 @@ button,
   -webkit-appearance: button;
 }
 
+
+/* public/css/style.css */
+
+
+
 button:not(:disabled),
 [type="button"]:not(:disabled),
 [type="reset"]:not(:disabled),
@@ -31277,4 +31282,11 @@ div.tagsinput span.tag a {
   }
 }
 
-/*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */
+/* Ensure that QR Codes are displayed as squares */
+.qr-code-img {
+  border-radius: 0 !important; /* Reset any border radius to make it square */
+  display: block; /* Optional: to prevent inline default spacing */
+  max-width: 100%; /* Ensures it is responsive and fits the container */
+  height: auto; /* Maintain aspect ratio */
+}
+

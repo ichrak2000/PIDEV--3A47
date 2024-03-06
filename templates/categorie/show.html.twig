@@ -20,28 +20,24 @@
                 <td>{{ categorie.description }}</td>
             </tr>
             <tr>
-    <th>Services Associés</th>
-    <td>
-        {% for service in categorie.slug %}
-            {{ service.name }}
-        {% endfor %}
-    </td>
-</tr>
-
-            <tr>
                 <th>Date de création</th>
                 <td>{{ categorie.dateDeCreation ? categorie.dateDeCreation|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
                 <th>Image/Logo</th>
-     
-                       <td><img src="{{ asset('' ~ categorie.ImagePath) }}" alt="Categorie Image"></td>
+                <td>
+                    {% if categorie.imagePath %}
+                        <img src="{{ asset(categorie.imagePath) }}" alt="Categorie Image" style="max-width: 200px; height: auto;">
+                    {% else %}
+                        <img src="{{ asset('uploads/images/default.jpg') }}" alt="Default Image" style="max-width: 200px; height: auto;">
+                    {% endif %}
+                </td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_categorie_index') }}">Back to List</a>
-    <a href="{{ path('app_categorie_edit', {'id': categorie.id}) }}">Edit</a>
+    <a href="{{ path('app_categorie_index') }}" class="btn btn-secondary">Back to List</a>
+    <a href="{{ path('app_categorie_edit', {'id': categorie.id}) }}" class="btn btn-primary">Edit</a>
 
     {{ include('categorie/_delete_form.html.twig') }}
 

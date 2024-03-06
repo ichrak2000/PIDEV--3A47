@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('Facture_new', {'id': commande.commandeId}) }}" onsubmit="return confirm('acc');">
+    <input type="hidden" name="_token" value="{{ csrf_token('Facture_new' ~ commande.commandeId) }}">
+    <button class="btn">Accepter</button>
+</form>

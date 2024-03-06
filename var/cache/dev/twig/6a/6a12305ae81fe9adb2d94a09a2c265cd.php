@@ -196,6 +196,6 @@ class __TwigTemplate_e9c387fe002a7acc0770bf12587ab428 extends Template
     </div>
 
 </ul>
-", "admin/partials/sidebar.html.twig", "C:\\Users\\Asus\\Desktop\\recll\\templates\\admin\\partials\\sidebar.html.twig");
+", "admin/partials/sidebar.html.twig", "C:\\Users\\Asus\\Desktop\\reclll\\templates\\admin\\partials\\sidebar.html.twig");
     }
 }

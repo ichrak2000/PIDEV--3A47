@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Reponse;
 use App\Form\ReponseType;
 use App\Repository\ReponseRepository;
+use App\Repository\ReclamationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,23 +23,37 @@ class ReponseController extends AbstractController
     }
 
     #[Route('/new', name: 'app_reponse_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, ReponseRepository $reponseRepository): Response
-    {
-        $reponse = new Reponse();
-        $form = $this->createForm(ReponseType::class, $reponse);
-        $form->handleRequest($request);
+    public function new(Request $request, ReponseRepository $reponseRepository, ReclamationRepository $reclamationRepository): Response
+{
+    $reponse = new Reponse();
+    $form = $this->createForm(ReponseType::class, $reponse);
+    $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $reponseRepository->save($reponse, true);
+    if ($form->isSubmitted() && $form->isValid()) {
+        // Ajoutez votre réponse à la réclamation ici et sauvegardez-la
+        $reponseRepository->save($reponse, true);
 
-            return $this->redirectToRoute('app_reponse_index', [], Response::HTTP_SEE_OTHER);
+        // Ici, nous supposons que $reponse->getReclamation() vous donne la réclamation liée
+        // Vous devez vous assurer que la réclamation est bien associée à la réponse avant cette étape
+        $reclamation = $reponse->getReclamation();
+        if ($reclamation) {
+            $reclamation->setTraitee(true);
+            $reclamationRepository->save($reclamation, true); 
+            $etatTexte = $reclamation->isTraitee() ? "traitée" : "non traitée";
+
         }
 
-        return $this->renderForm('reponse/new.html.twig', [
-            'reponse' => $reponse,
-            'form' => $form,
+        return $this->redirectToRoute('app_reclamation_show', [
+            'id' => $reclamation->getId(),
+            'etatTexte' => $etatTexte 
         ]);
     }
+
+    return $this->renderForm('reponse/new.html.twig', [
+        'reponse' => $reponse,
+        'form' => $form,
+    ]);
+}
 
     #[Route('/{id}', name: 'app_reponse_show', methods: ['GET'])]
     public function show(Reponse $reponse): Response

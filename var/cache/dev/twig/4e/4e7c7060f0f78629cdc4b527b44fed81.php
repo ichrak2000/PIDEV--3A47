@@ -305,6 +305,6 @@ class __TwigTemplate_d8548c0f26f06f658d2bd923e0965c20 extends Template
         <script src=\"{{ asset('sbadmin2/js/sb-admin-2.min.js') }}\"></script>
     </body>
 </html>
-", "admin/base.html.twig", "C:\\Users\\Malik\\Desktop\\Nour3\\Animaland (2) (1)\\Animaland\\templates\\admin\\base.html.twig");
+", "admin/base.html.twig", "C:\\xampp\\htdocs\\recll\\templates\\admin\\base.html.twig");
     }
 }

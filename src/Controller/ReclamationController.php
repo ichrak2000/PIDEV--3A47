@@ -9,16 +9,46 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Endroid\QrCode\Writer\PngWriter;
+use Endroid\QrCode\Builder\BuilderInterface; 
+use Endroid\QrCode\Writer\Result\PngResult;
 
 #[Route('/reclamation')]
 class ReclamationController extends AbstractController
 {
+    private $qrCodeBuilder;
+
+    public function __construct(BuilderInterface $qrCodeBuilder)
+    {
+        $this->qrCodeBuilder = $qrCodeBuilder;
+    }
     #[Route('/', name: 'app_reclamation_index', methods: ['GET'])]
     public function index(ReclamationRepository $reclamationRepository): Response
     {
+        $reclamations = $reclamationRepository->findAll();
+
+        foreach ($reclamations as $reclamation) {
+            // Check if $this->qrCodeBuilder is not null
+            if ($this->qrCodeBuilder !== null) {
+                // Customize the QR code data
+                $qrCodeResult = $this->qrCodeBuilder
+                    ->data($reclamation->getDescription())
+                    ->build();
+
+                $qrCodeString = $this->convertQrCodeResultToString($qrCodeResult);
+
+                $reclamation->setQrCode($qrCodeString);
+            }
+        }
         return $this->render('reclamation/index.html.twig', [
             'reclamations' => $reclamationRepository->findAll(),
         ]);
+    }
+    private function convertQrCodeResultToString(PngResult $qrCodeResult): string
+    {
+        // Convert the result to a string (e.g., base64 encode the image)
+        // Adjust this logic based on how you want to represent the QR code data
+        return 'data:image/png;base64,' . base64_encode($qrCodeResult->getString());
     }
 
     #[Route('/new', name: 'app_reclamation_new', methods: ['GET', 'POST'])]

@@ -67,10 +67,10 @@ class Reclamation extends \App\Entity\Reclamation implements \Doctrine\ORM\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Reclamation' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Reclamation' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Reclamation' . "\0" . 'dateReclamation', '' . "\0" . 'App\\Entity\\Reclamation' . "\0" . 'typeReclamation'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Reclamation' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Reclamation' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Reclamation' . "\0" . 'traitee', '' . "\0" . 'App\\Entity\\Reclamation' . "\0" . 'dateReclamation', '' . "\0" . 'App\\Entity\\Reclamation' . "\0" . 'typeReclamation', '' . "\0" . 'App\\Entity\\Reclamation' . "\0" . 'qrCode'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Reclamation' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Reclamation' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Reclamation' . "\0" . 'dateReclamation', '' . "\0" . 'App\\Entity\\Reclamation' . "\0" . 'typeReclamation'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Reclamation' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Reclamation' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Reclamation' . "\0" . 'traitee', '' . "\0" . 'App\\Entity\\Reclamation' . "\0" . 'dateReclamation', '' . "\0" . 'App\\Entity\\Reclamation' . "\0" . 'typeReclamation', '' . "\0" . 'App\\Entity\\Reclamation' . "\0" . 'qrCode'];
     }
 
     /**
@@ -206,6 +206,28 @@ class Reclamation extends \App\Entity\Reclamation implements \Doctrine\ORM\Proxy
     /**
      * {@inheritDoc}
      */
+    public function isTraitee(): bool
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isTraitee', []);
+
+        return parent::isTraitee();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setTraitee(bool $traitee): \App\Entity\Reclamation
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTraitee', [$traitee]);
+
+        return parent::setTraitee($traitee);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function setDescription(string $description): \App\Entity\Reclamation
     {
 
@@ -267,6 +289,28 @@ class Reclamation extends \App\Entity\Reclamation implements \Doctrine\ORM\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
 
         return parent::__toString();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getQrCode(): ?string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getQrCode', []);
+
+        return parent::getQrCode();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setQrCode(?string $qrCode): \App\Entity\Reclamation
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setQrCode', [$qrCode]);
+
+        return parent::setQrCode($qrCode);
     }
 
 }

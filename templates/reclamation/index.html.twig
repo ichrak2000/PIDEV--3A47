@@ -12,6 +12,8 @@
                 <th>Id</th>
                 <th>Description</th>
                 <th>DateReclamation</th>
+                 <th>état</th>
+                <th>QR Code</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -21,6 +23,10 @@
                 <td>{{ reclamation.id }}</td>
                 <td>{{ reclamation.description }}</td>
                 <td>{{ reclamation.dateReclamation ? reclamation.dateReclamation|date('Y-m-d H:i:s') : '' }}</td>
+            <td>{{ reclamation.traitee ? 'traitée' : 'non traitée' }}</td>
+                <td>
+                <img src="{{ reclamation.qrCode }}" width="123" height="100" />
+                </td>
                 <td>
                     <a href="{{ path('app_reclamation_show', {'id': reclamation.id}) }}">show</a>
                     <a href="{{ path('app_reclamation_edit', {'id': reclamation.id}) }}">edit</a>
@@ -36,3 +42,4 @@
 
     <a href="{{ path('app_reclamation_new') }}">Create new</a>
 {% endblock %}
+

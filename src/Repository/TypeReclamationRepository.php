@@ -39,6 +39,46 @@ class TypeReclamationRepository extends ServiceEntityRepository
         }
     }
 
+
+    public function findBySortedField($sortField, $sortDirection): array
+    {
+        // 'findBy' takes criteria, orderBy, limit, and offset. We are using orderBy here.
+        return $this->findBy([], [$sortField => $sortDirection]);
+    }   
+    public function findByNom($nom)
+    {
+        return $this->createQueryBuilder('tr')
+            ->andWhere('tr.nom = :nom')
+            ->setParameter('nom', $nom)
+            ->getQuery()
+            ->getResult(); // Change this line to getResult()
+    }
+    public function getPercentageByType()
+    {
+        $total = $this->createQueryBuilder('t')
+            ->select('COUNT(t.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
+
+        $query = $this->createQueryBuilder('t')
+            ->select('t.nom', 'COUNT(t.id) as count')
+            ->groupBy('t.nom')
+            ->getQuery()
+            ->getResult();
+
+        $percentages = [];
+        foreach ($query as $result) {
+            $percentage = ($result['count'] / $total) * 100;
+            $percentages[$result['nom']] = $percentage;
+        }
+
+        return $percentages;
+    }
+    
+    
+
+
+
 //    /**
 //     * @return TypeReclamation[] Returns an array of TypeReclamation objects
 //     */

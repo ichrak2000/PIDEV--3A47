@@ -366,6 +366,6 @@ class __TwigTemplate_7021eebc4b106b90416a914fa19aeac6 extends Template
 
 </nav>
 <!-- End of Topbar -->
-", "admin/partials/topbar.html.twig", "C:\\Users\\Asus\\Desktop\\recll\\templates\\admin\\partials\\topbar.html.twig");
+", "admin/partials/topbar.html.twig", "C:\\Users\\Asus\\Desktop\\reclll\\templates\\admin\\partials\\topbar.html.twig");
     }
 }

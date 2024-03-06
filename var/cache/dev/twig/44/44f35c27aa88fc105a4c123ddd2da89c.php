@@ -141,6 +141,6 @@ class __TwigTemplate_d19aa381d00c0b2907f9c9c577eec541 extends Template
 
     {{ include('reclamation/_delete_form.html.twig') }}
 {% endblock %}
-", "reclamation/edit.html.twig", "C:\\Users\\Asus\\Desktop\\recll\\templates\\reclamation\\edit.html.twig");
+", "reclamation/edit.html.twig", "C:\\Users\\Asus\\Desktop\\reclll\\templates\\reclamation\\edit.html.twig");
     }
 }

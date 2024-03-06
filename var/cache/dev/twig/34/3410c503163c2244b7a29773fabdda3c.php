@@ -133,10 +133,16 @@ class __TwigTemplate_c2f121f355bcc22bd47ee2e1ee3e15c9 extends Template
         echo "\">New Reclamation</a>
 \t\t\t\t\t\t</li>
 \t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t<a href=\"\">Your wallet</a>
+\t\t\t\t\t\t\t<a href=\"";
+        // line 62
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_index");
+        echo "\"> liste de reclamation </a>
 \t\t\t\t\t\t</li>
 \t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t<a href=\"\">Certifications</a>
+\t\t\t\t\t\t<a href=\"";
+        // line 65
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reponse_index");
+        echo "\"> liste de reponse </a>
 \t\t\t\t\t\t</li>
 \t\t\t\t\t\t<li>
 \t\t\t\t\t\t\t<a href=\"\">Support</a>
@@ -314,7 +320,7 @@ class __TwigTemplate_c2f121f355bcc22bd47ee2e1ee3e15c9 extends Template
 
     public function getDebugInfo()
     {
-        return array (  288 => 101,  270 => 100,  254 => 147,  248 => 144,  244 => 143,  240 => 142,  236 => 141,  232 => 140,  228 => 139,  189 => 102,  186 => 101,  184 => 100,  167 => 85,  153 => 74,  148 => 71,  146 => 70,  132 => 59,  102 => 32,  95 => 28,  90 => 26,  86 => 25,  82 => 24,  78 => 23,  74 => 22,  64 => 15,  59 => 13,  45 => 1,);
+        return array (  294 => 101,  276 => 100,  260 => 147,  254 => 144,  250 => 143,  246 => 142,  242 => 141,  238 => 140,  234 => 139,  195 => 102,  192 => 101,  190 => 100,  173 => 85,  159 => 74,  154 => 71,  152 => 70,  144 => 65,  138 => 62,  132 => 59,  102 => 32,  95 => 28,  90 => 26,  86 => 25,  82 => 24,  78 => 23,  74 => 22,  64 => 15,  59 => 13,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -380,10 +386,10 @@ class __TwigTemplate_c2f121f355bcc22bd47ee2e1ee3e15c9 extends Template
 \t\t\t\t\t\t\t<a href=\"{{ path('app_reclamation_new') }}\">New Reclamation</a>
 \t\t\t\t\t\t</li>
 \t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t<a href=\"\">Your wallet</a>
+\t\t\t\t\t\t\t<a href=\"{{ path('app_reclamation_index') }}\"> liste de reclamation </a>
 \t\t\t\t\t\t</li>
 \t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t<a href=\"\">Certifications</a>
+\t\t\t\t\t\t<a href=\"{{ path('app_reponse_index') }}\"> liste de reponse </a>
 \t\t\t\t\t\t</li>
 \t\t\t\t\t\t<li>
 \t\t\t\t\t\t\t<a href=\"\">Support</a>

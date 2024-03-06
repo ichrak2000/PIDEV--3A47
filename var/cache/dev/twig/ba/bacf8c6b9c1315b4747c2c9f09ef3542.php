@@ -112,9 +112,13 @@ class __TwigTemplate_3c8a0b743690e1ae1637f100988fed0a extends Template
           </button>
         </div>
         <div>
-          <a class=\"navbar-brand brand-logo\" href=\"index.html\">
-            Freelancy
-          </a>
+        \t\t\t\t\t\t<li>
+\t\t\t\t\t\t<a class=\"navbar-brand brand-logo\"  href=\"";
+        // line 38
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home_index");
+        echo "\">  Freelancy</a>
+\t\t\t\t\t\t</li>
+        
         </div>
       </div>
       <div class=\"navbar-menu-wrapper d-flex align-items-top\"> 
@@ -342,15 +346,15 @@ class __TwigTemplate_3c8a0b743690e1ae1637f100988fed0a extends Template
             <div class=\"collapse\" id=\"ui-basic\">
               <ul class=\"nav flex-column sub-menu\">
                 <li class=\"nav-item\"> <a class=\"nav-link\" href=\"";
-        // line 266
+        // line 267
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_index");
         echo "\">reclamation</a></li>
                 <li class=\"nav-item\"> <a class=\"nav-link\" href=\"";
-        // line 267
+        // line 268
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_type_reclamation_index");
         echo "\">type</a></li>
                 <li class=\"nav-item\"> <a class=\"nav-link\" href=\"";
-        // line 268
+        // line 269
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reponse_index");
         echo "\">reponse</a></li>
         
@@ -363,12 +367,12 @@ class __TwigTemplate_3c8a0b743690e1ae1637f100988fed0a extends Template
       <div class=\"main-panel\">
         <div class=\"content-wrapper\">
          ";
-        // line 278
-        $this->displayBlock('contentblock', $context, $blocks);
         // line 279
+        $this->displayBlock('contentblock', $context, $blocks);
+        // line 280
         echo "                 ";
         $this->displayBlock('body', $context, $blocks);
-        // line 280
+        // line 281
         echo "
           </div>
         </div>
@@ -387,58 +391,58 @@ class __TwigTemplate_3c8a0b743690e1ae1637f100988fed0a extends Template
   
   <!-- plugins:js -->
   <script src=\"";
-        // line 297
+        // line 298
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendors/js/vendor.bundle.base.js"), "html", null, true);
         echo "\"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
   <script src=\"";
-        // line 300
+        // line 301
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendors/chart.js/Chart.min.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 301
+        // line 302
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 302
+        // line 303
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendors/progressbar.js/progressbar.min.js"), "html", null, true);
         echo "\"></script>
 
   <!-- End plugin js for this page -->
   <!-- inject:js -->
   <script src=\"";
-        // line 306
+        // line 307
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/off-canvas.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 307
+        // line 308
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/hoverable-collapse.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 308
+        // line 309
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/template.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 309
+        // line 310
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/settings.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 310
+        // line 311
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/todolist.js"), "html", null, true);
         echo "\"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src=\"";
-        // line 313
+        // line 314
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/jquery.cookie.js"), "html", null, true);
         echo "\" type=\"text/javascript\"></script>
   <script src=\"";
-        // line 314
+        // line 315
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/dashboard.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 315
+        // line 316
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/Chart.roundedBarCharts.js"), "html", null, true);
         echo "\"></script>
   <!-- End custom js for this page-->
@@ -475,7 +479,7 @@ class __TwigTemplate_3c8a0b743690e1ae1637f100988fed0a extends Template
 
     }
 
-    // line 278
+    // line 279
     public function block_contentblock($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -493,7 +497,7 @@ class __TwigTemplate_3c8a0b743690e1ae1637f100988fed0a extends Template
 
     }
 
-    // line 279
+    // line 280
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -523,7 +527,7 @@ class __TwigTemplate_3c8a0b743690e1ae1637f100988fed0a extends Template
 
     public function getDebugInfo()
     {
-        return array (  497 => 279,  479 => 278,  460 => 7,  442 => 315,  438 => 314,  434 => 313,  428 => 310,  424 => 309,  420 => 308,  416 => 307,  412 => 306,  405 => 302,  401 => 301,  397 => 300,  391 => 297,  372 => 280,  369 => 279,  367 => 278,  354 => 268,  350 => 267,  346 => 266,  101 => 24,  96 => 22,  90 => 19,  86 => 18,  80 => 15,  76 => 14,  72 => 13,  68 => 12,  64 => 11,  60 => 10,  54 => 7,  46 => 1,);
+        return array (  501 => 280,  483 => 279,  464 => 7,  446 => 316,  442 => 315,  438 => 314,  432 => 311,  428 => 310,  424 => 309,  420 => 308,  416 => 307,  409 => 303,  405 => 302,  401 => 301,  395 => 298,  376 => 281,  373 => 280,  371 => 279,  358 => 269,  354 => 268,  350 => 267,  118 => 38,  101 => 24,  96 => 22,  90 => 19,  86 => 18,  80 => 15,  76 => 14,  72 => 13,  68 => 12,  64 => 11,  60 => 10,  54 => 7,  46 => 1,);
     }
 
     public function getSourceContext()
@@ -564,9 +568,10 @@ class __TwigTemplate_3c8a0b743690e1ae1637f100988fed0a extends Template
           </button>
         </div>
         <div>
-          <a class=\"navbar-brand brand-logo\" href=\"index.html\">
-            Freelancy
-          </a>
+        \t\t\t\t\t\t<li>
+\t\t\t\t\t\t<a class=\"navbar-brand brand-logo\"  href=\"{{ path('home_index') }}\">  Freelancy</a>
+\t\t\t\t\t\t</li>
+        
         </div>
       </div>
       <div class=\"navbar-menu-wrapper d-flex align-items-top\"> 

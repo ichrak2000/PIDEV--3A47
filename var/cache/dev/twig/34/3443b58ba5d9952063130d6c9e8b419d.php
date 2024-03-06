@@ -102,6 +102,6 @@ class __TwigTemplate_b7e259de5734367caefcd465bb297833 extends Template
 \t\t</ul>
 \t</div>
 </nav>
-", "partials/_navbar.html.twig", "C:\\Users\\Asus\\Desktop\\recll\\templates\\partials\\_navbar.html.twig");
+", "partials/_navbar.html.twig", "C:\\Users\\Asus\\Desktop\\reclll\\templates\\partials\\_navbar.html.twig");
     }
 }

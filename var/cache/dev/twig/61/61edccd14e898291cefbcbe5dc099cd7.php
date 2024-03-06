@@ -102,6 +102,6 @@ class __TwigTemplate_f8b394d677acf11c74c1d349d94a94a8 extends Template
 \t\t</ul>
 \t</div>
 </nav>
-", "partials/_navbar.html.twig", "C:\\Users\\Malik\\Desktop\\Nour3\\Animaland (2) (1)\\Animaland\\templates\\partials\\_navbar.html.twig");
+", "partials/_navbar.html.twig", "C:\\xampp\\htdocs\\recll\\templates\\partials\\_navbar.html.twig");
     }
 }

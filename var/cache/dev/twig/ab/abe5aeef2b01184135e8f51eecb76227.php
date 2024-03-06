@@ -107,10 +107,7 @@ class __TwigTemplate_14a87f904a0c2f50e2be253a3b87b726 extends Template
         <!-- Nav Item - User Information -->
         <li class=\"nav-item dropdown no-arrow\">
             <a aria-expanded=\"false\" aria-haspopup=\"true\" class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" id=\"userDropdown\" role=\"button\">
-                <span class=\"mr-2 d-none d-lg-inline text-gray-600 small\"><i class=\"far fa-user text-primary mr-2 fa-2x \"></i>";
-        // line 171
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 171, $this->source); })()), "user", [], "any", false, false, false, 171), "fullName", [], "any", false, false, false, 171), "html", null, true);
-        echo "</span>
+                <span class=\"mr-2 d-none d-lg-inline text-gray-600 small\"><i class=\"far fa-user text-primary mr-2 fa-2x \"></i></span>
                 ";
         // line 173
         echo "            </a>
@@ -165,7 +162,7 @@ class __TwigTemplate_14a87f904a0c2f50e2be253a3b87b726 extends Template
 
     public function getDebugInfo()
     {
-        return array (  135 => 188,  128 => 180,  121 => 176,  116 => 173,  112 => 171,  104 => 165,  101 => 163,  98 => 109,  96 => 108,  94 => 107,  91 => 105,  88 => 103,  85 => 56,  83 => 55,  81 => 54,  78 => 52,  75 => 50,  72 => 31,  70 => 30,  68 => 29,  63 => 25,  60 => 23,  57 => 12,  55 => 11,  53 => 10,  43 => 1,);
+        return array (  132 => 188,  125 => 180,  118 => 176,  113 => 173,  104 => 165,  101 => 163,  98 => 109,  96 => 108,  94 => 107,  91 => 105,  88 => 103,  85 => 56,  83 => 55,  81 => 54,  78 => 52,  75 => 50,  72 => 31,  70 => 30,  68 => 29,  63 => 25,  60 => 23,  57 => 12,  55 => 11,  53 => 10,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -340,7 +337,7 @@ class __TwigTemplate_14a87f904a0c2f50e2be253a3b87b726 extends Template
         <!-- Nav Item - User Information -->
         <li class=\"nav-item dropdown no-arrow\">
             <a aria-expanded=\"false\" aria-haspopup=\"true\" class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" id=\"userDropdown\" role=\"button\">
-                <span class=\"mr-2 d-none d-lg-inline text-gray-600 small\"><i class=\"far fa-user text-primary mr-2 fa-2x \"></i>{{ app.user.fullName }}</span>
+                <span class=\"mr-2 d-none d-lg-inline text-gray-600 small\"><i class=\"far fa-user text-primary mr-2 fa-2x \"></i></span>
                 {# <img class=\"img-profile rounded-circle\" src=\"https://source.unsplash.com/QAB-WJcbgJk/60x60\"> #}
             </a>
             <!-- Dropdown - User Information -->
@@ -369,6 +366,6 @@ class __TwigTemplate_14a87f904a0c2f50e2be253a3b87b726 extends Template
 
 </nav>
 <!-- End of Topbar -->
-", "admin/partials/topbar.html.twig", "C:\\Users\\Malik\\Desktop\\Nour3\\Animaland (2) (1)\\Animaland\\templates\\admin\\partials\\topbar.html.twig");
+", "admin/partials/topbar.html.twig", "C:\\xampp\\htdocs\\recll\\templates\\admin\\partials\\topbar.html.twig");
     }
 }

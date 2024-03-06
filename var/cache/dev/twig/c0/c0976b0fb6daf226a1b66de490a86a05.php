@@ -133,6 +133,6 @@ class __TwigTemplate_f08ef47129b8b3358bd4e7fb17ec74de extends Template
 
     <a href=\"{{ path('app_type_reclamation_index') }}\">back to list</a>
 {% endblock %}
-", "type_reclamation/new.html.twig", "C:\\Users\\Asus\\Desktop\\recll\\templates\\type_reclamation\\new.html.twig");
+", "type_reclamation/new.html.twig", "C:\\Users\\Asus\\Desktop\\reclll\\templates\\type_reclamation\\new.html.twig");
     }
 }

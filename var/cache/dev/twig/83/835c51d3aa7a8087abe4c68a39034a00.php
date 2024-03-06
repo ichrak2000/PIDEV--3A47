@@ -196,6 +196,6 @@ class __TwigTemplate_3d3ec444fa64e005cd658e206b8e0f81 extends Template
     </div>
 
 </ul>
-", "admin/partials/sidebar.html.twig", "C:\\Users\\Malik\\Desktop\\Nour3\\Animaland (2) (1)\\Animaland\\templates\\admin\\partials\\sidebar.html.twig");
+", "admin/partials/sidebar.html.twig", "C:\\xampp\\htdocs\\recll\\templates\\admin\\partials\\sidebar.html.twig");
     }
 }

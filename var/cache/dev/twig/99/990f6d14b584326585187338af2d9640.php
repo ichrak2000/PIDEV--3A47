@@ -107,6 +107,6 @@ class __TwigTemplate_0fd1e39e7d653733630c3598be28819c extends Template
     {% if segment in app.request.attributes.get('_route') %}
         active
     {% endif %}
-{% endmacro %}", "partials/_macro.html.twig", "C:\\Users\\Asus\\Desktop\\recll\\templates\\partials\\_macro.html.twig");
+{% endmacro %}", "partials/_macro.html.twig", "C:\\Users\\Asus\\Desktop\\reclll\\templates\\partials\\_macro.html.twig");
     }
 }

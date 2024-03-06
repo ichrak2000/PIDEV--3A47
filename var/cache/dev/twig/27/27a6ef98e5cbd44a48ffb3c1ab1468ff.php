@@ -55,7 +55,7 @@ class __TwigTemplate_c293f0dcc078e1c8953fe549570b17c5 extends Template
 
     }
 
-    // line 4
+    // line 3
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -74,7 +74,7 @@ class __TwigTemplate_c293f0dcc078e1c8953fe549570b17c5 extends Template
 
     }
 
-    // line 6
+    // line 5
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -84,7 +84,7 @@ class __TwigTemplate_c293f0dcc078e1c8953fe549570b17c5 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 7
+        // line 6
         echo "    <h1>Reclamation index</h1>
 
     <table class=\"table\">
@@ -93,7 +93,8 @@ class __TwigTemplate_c293f0dcc078e1c8953fe549570b17c5 extends Template
                 <th>Id</th>
                 <th>Description</th>
                 <th>DateReclamation</th>
-                <th>actions</th>
+                <th>TypeReclamation</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -117,14 +118,18 @@ class __TwigTemplate_c293f0dcc078e1c8953fe549570b17c5 extends Template
             // line 23
             ((twig_get_attribute($this->env, $this->source, $context["reclamation"], "dateReclamation", [], "any", false, false, false, 23)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "dateReclamation", [], "any", false, false, false, 23), "Y-m-d H:i:s"), "html", null, true))) : (print ("")));
             echo "</td>
+                <td>";
+            // line 24
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["reclamation"], "typeReclamation", [], "any", false, false, false, 24), "nom", [], "any", false, false, false, 24), "html", null, true);
+            echo "</td>
                 <td>
                     <a href=\"";
-            // line 25
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_show", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "id", [], "any", false, false, false, 25)]), "html", null, true);
+            // line 26
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_show", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "id", [], "any", false, false, false, 26)]), "html", null, true);
             echo "\">show</a>
                     <a href=\"";
-            // line 26
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "id", [], "any", false, false, false, 26)]), "html", null, true);
+            // line 27
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "id", [], "any", false, false, false, 27)]), "html", null, true);
             echo "\">edit</a>
                 </td>
             </tr>
@@ -132,21 +137,21 @@ class __TwigTemplate_c293f0dcc078e1c8953fe549570b17c5 extends Template
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 30
+            // line 31
             echo "            <tr>
-                <td colspan=\"4\">no records found</td>
+                <td colspan=\"5\">no records found</td>
             </tr>
         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['reclamation'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 34
+        // line 35
         echo "        </tbody>
     </table>
 
     <a href=\"";
-        // line 37
+        // line 38
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_new");
         echo "\">Create new</a>
 ";
@@ -170,13 +175,12 @@ class __TwigTemplate_c293f0dcc078e1c8953fe549570b17c5 extends Template
 
     public function getDebugInfo()
     {
-        return array (  150 => 37,  145 => 34,  136 => 30,  127 => 26,  123 => 25,  118 => 23,  114 => 22,  110 => 21,  107 => 20,  102 => 19,  88 => 7,  78 => 6,  59 => 4,  36 => 1,);
+        return array (  155 => 38,  150 => 35,  141 => 31,  132 => 27,  128 => 26,  123 => 24,  119 => 23,  115 => 22,  111 => 21,  108 => 20,  103 => 19,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends \"admin/layout.html.twig\" %}
-
 
 {% block title %}Reclamation index{% endblock %}
 
@@ -189,7 +193,8 @@ class __TwigTemplate_c293f0dcc078e1c8953fe549570b17c5 extends Template
                 <th>Id</th>
                 <th>Description</th>
                 <th>DateReclamation</th>
-                <th>actions</th>
+                <th>TypeReclamation</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -198,6 +203,7 @@ class __TwigTemplate_c293f0dcc078e1c8953fe549570b17c5 extends Template
                 <td>{{ reclamation.id }}</td>
                 <td>{{ reclamation.description }}</td>
                 <td>{{ reclamation.dateReclamation ? reclamation.dateReclamation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ reclamation.typeReclamation.nom }}</td>
                 <td>
                     <a href=\"{{ path('app_reclamation_show', {'id': reclamation.id}) }}\">show</a>
                     <a href=\"{{ path('app_reclamation_edit', {'id': reclamation.id}) }}\">edit</a>
@@ -205,7 +211,7 @@ class __TwigTemplate_c293f0dcc078e1c8953fe549570b17c5 extends Template
             </tr>
         {% else %}
             <tr>
-                <td colspan=\"4\">no records found</td>
+                <td colspan=\"5\">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

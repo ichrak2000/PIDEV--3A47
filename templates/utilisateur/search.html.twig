@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="search-container">
+        <h1 class="search-title">Recherche par domaine</h1>
+        <form class="search-form" action="{{ path('app_utilisateur_search') }}" method="get">
+            <input class="search-input" type="text" name="domain" placeholder="Entrez le domaine" required>
+            <button class="search-button" type="submit">Rechercher</button>
+        </form>
+
+        {% if domaine %}
+            <div class="search-results">
+                <p class="search-results-title">Résultats de la recherche pour le domaine : <strong>{{ domaine }}</strong></p>
+                {% if utilisateurs is defined and utilisateurs|length > 0 %}
+                    <ul class="user-list">
+                        {% for utilisateur in utilisateurs %}
+                            <li class="user-item">{{ utilisateur.name }} - {{ utilisateur.email }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="no-results">Aucun utilisateur trouvé pour ce domaine.</p>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .search-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .search-title {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .search-form {
+            margin-bottom: 2rem;
+        }
+
+        .search-input {
+            padding: 0.5rem;
+            margin-right: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .search-button {
+            padding: 0.5rem 1rem;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #0056b3;
+        }
+
+        .search-results {
+            text-align: left;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            padding: 1rem;
+            border: 1px solid #ddd;
+        }
+
+        .search-results-title {
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .user-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .user-item {
+            background-color: white;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .no-results {
+            color: #999;
+        }
+    </style>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Statistiques des Utilisateurs{% endblock %}
+
+{% block contentblock %}
+    <div class="container">
+        <h1 class="text-center mb-5">Statistiques des Utilisateurs</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card bg-primary text-white shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre d'Admins : {{ stats.adminCount }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card bg-info text-white shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre de Freelancers : {{ stats.freelancerCount }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mt-4">
+                <div class="card bg-success text-white shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre d'Entreprises : {{ stats.entrepriseCount }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

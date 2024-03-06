@@ -33,10 +33,12 @@
             <span class="icon-menu"></span>
           </button>
         </div>
-        <div>
-          <a class="navbar-brand brand-logo" href="index.html">
-            Freelancy
-          </a>
+<div>
+    <a class="navbar-brand brand-logo" href="{{ path('app_home1') }}">
+        Freelancy
+    </a>
+</div>
+
         </div>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-top"> 
@@ -53,17 +55,12 @@
         <ul class="navbar-nav ms-auto">
           
           
-          <li class="nav-item">
-            <form class="search-form" action="#">
-              <i class="icon-search"></i>
-              <input type="search" class="form-control" placeholder="Search Here" title="Search here">
-            </form>
-          </li>
+
 
           
           <li class="nav-item dropdown d-none d-lg-block user-dropdown">
             <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-              <img class="img-xs rounded-circle" src="{{ asset('' ~ app.user.ImagePath) }}" alt="Profile image"> </a>
+              <img class="img-xs rounded-circle" src="{{ asset('' ~ app.user.ImagePath) }}" alt="Profile image"> </a>  
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
                 
@@ -72,6 +69,8 @@
                 <p class="fw-light text-muted mb-0">{{app.user.email}}</p>
               </div>
               <a class="dropdown-item" href = "{{ path('app_utilisateur_show', {'id': app.user.id}) }}"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2" ></i> My Profile </a>
+            
+
               <a class="dropdown-item" href="{{ path('app_logout') }}"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
             </div>
           </li>
@@ -81,6 +80,7 @@
         </button>
       </div>
     </nav>
+
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_settings-panel.html -->
@@ -262,6 +262,7 @@
               <i class="mdi mdi-grid-large menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
+
           </li>
           <li class="nav-item nav-category">Manage</li>
           <li class="nav-item">
@@ -283,6 +284,7 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
+ 
          {% block contentblock %}{% endblock %}
           </div>
         </div>
